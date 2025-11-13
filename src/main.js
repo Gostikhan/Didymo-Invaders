@@ -2,6 +2,7 @@ import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
+import Phaser from 'phaser';
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -22,3 +23,28 @@ document.querySelector('#app').innerHTML = `
 `
 
 setupCounter(document.querySelector('#counter'))
+
+const config = {
+  type: Phaser.AUTO,
+  width: 800,
+  height: 600,
+  scene: {
+    preload,
+    create,
+    update
+  }
+};
+
+const game = new Phaser.Game(config);
+
+function preload() {
+  this.load.image('didymo', 'assets/didymo.png');
+}
+
+function create() {
+  this.add.image(400, 300, 'didymo');
+}
+
+function update() {
+  // game loop logic
+}
