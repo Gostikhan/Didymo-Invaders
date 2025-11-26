@@ -99,9 +99,40 @@ class GameScene extends Phaser.Scene{
       bullet.body.velocity.y = -400;
     }
   }
+
+    spawnEnemies() {
+    const rows = 3;
+    const cols = 8;
+    const offsetX = 80;
+    const offsetY = 60;
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const x = offsetX + col * 80;
+        const y = offsetY + row * 60;
+        const enemy = this.enemies.create(x, y, "enemy");
+        enemy.setVelocityY(20); // descend slowly
+      }
+    }
+  }
+    hitEnemy(bullet, enemy) {
+    bullet.destroy();
+    enemy.destroy();
+    this.score += 10;
+    this.scoreText.setText("Score: " + this.score);
+  }
+
+  gameOver() {
+    this.add.text(config.width / 2 - 100, config.height / 2, "GAME OVER", {
+      fontSize: "48px",
+      fill: "#ff0000",
+    });
+    this.physics.pause();
+    this.player.setTint(0xff0000);
+  }
 }
 
+new Phaser.Game(config);
 
-
-const game = new Phaser.Game(config)
+//const game = new Phaser.Game(config)
 

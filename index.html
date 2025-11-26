@@ -1,21 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Space Invaders Aquatic Pests</title>
-  </head>
-  <body>
-    <header>
-      <p>Phaser Demo | Space Invades: Aquatic Pests</p>
-    </header>
-    <main>
-      <canvas id="gameCanvas"></canvas>
-    </main>
-    <footer>
-      <p>Wai Wanaka</p>
-    </footer>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Space Invaders Using Phaser HTML5 Game Engine</title>
+    <script src="assets/libs/phaser.js"></script>
+    <script src="src/Boot.js"></script>
+    <script src="src/Preloader.js"></script>
+    <script src="src/StartMenu.js"></script>
+    <script src="src/Game.js"></script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #000000;
+		}
+	</style>
+</head>
+<body>
+    <div id="gameContainer"></div>
+    <script type="text/javascript">
+        window.onload = function() {
+            var game = new Phaser.Game(540, 960, Phaser.AUTO, 'gameContainer');
+            game.state.add('Boot', SpaceInvaders.Boot);
+            game.state.add('Preloader', SpaceInvaders.Preloader);
+            game.state.add('StartMenu', SpaceInvaders.StartMenu);
+            game.state.add('Game', SpaceInvaders.Game);
+            game.state.start('Boot');
+        }
+    </script>
+</body>
 </html>
