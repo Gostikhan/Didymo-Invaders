@@ -13,7 +13,7 @@ SpaceInvaders.Boot.prototype = {
         this.stage.disableVisibilityChange = false;
 
         // Responsive fullscreen scaling
-        this.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
 
