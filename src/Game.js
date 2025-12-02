@@ -62,7 +62,7 @@ SpaceInvaders.Game.prototype = {
 		    	} 
 		    } 
 		//All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-		var tween = this.add.tween(this.invaders).to( { x: 70 }, 1000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+		var tween = this.add.tween(this.invaders).to( { x: 700 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 		//When the tween loops it calls > flyDown
 		tween.onLoop.add(this.flyDown, this);
 	},
@@ -102,7 +102,7 @@ SpaceInvaders.Game.prototype = {
 
 
 	buildShip: function() {
-		this.ship = this.add.sprite(270, 900, 'ship');
+		this.ship = this.add.sprite(this.world.centerX, this.world.height - 100, 'ship');
 		this.ship.enableBody = true;
 		this.ship.anchor.setTo(0.5, 0.5);
 		this.physics.enable(this.ship, Phaser.Physics.ARCADE);
@@ -289,7 +289,7 @@ SpaceInvaders.Game.prototype = {
 	    {
 	        this.ship.body.velocity.x = -200;
 	    }
-	    else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && this.ship.body.x < 484)
+	    else if (this.input.keyboard.isDown(Phaser.Keyboard.RIGHT) && this.ship.body.x < this.world.width - this.ship.width/2)
 	    {
 	        this.ship.body.velocity.x = 200;
 	    }
