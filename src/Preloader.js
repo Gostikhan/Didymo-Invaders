@@ -12,7 +12,8 @@ SpaceInvaders.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 		this.titleText = this.add.image(this.world.centerX, this.world.centerY-220, 'titleimage');
 		this.titleText.anchor.setTo(0.5, 0.5);
-       	this.load.image('titlescreen', 'assets/images/TitleBG.png');
+       	this.load.image('titlescreen', 'assets/images/TitleBG1.jpg');
+		this.load.audio('titleMusic', 'assets/audio/TitleMusic.mp3');
         this.load.image('ship', 'assets/images/ship.png');
         this.load.image('bullet', 'assets/images/blaster.png');
         this.load.image('invaderBullet', 'assets/images/invaderblaster.png');
