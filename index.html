@@ -11,6 +11,7 @@
     <script src="src/Game.js"></script>
     <script src="src/GameLevel2.js"></script>
     <script src="src/GameLevel3.js"></script>
+    <script src="src/FactCards.js"></script>
 
 </head>
 <body>
@@ -25,6 +26,9 @@
             game.state.add('GameLevel2', SpaceInvaders.GameLevel2);
             game.state.add('GameLevel3', SpaceInvaders.GameLevel3);
             game.state.start('Boot');
+            game.state.add('FactCard1', SpaceInvaders.FactCard1);
+            game.state.add('FactCard2', SpaceInvaders.FactCard2);
+            game.state.add('FactCard3', SpaceInvaders.FactCard3);
             
         }
     </script>

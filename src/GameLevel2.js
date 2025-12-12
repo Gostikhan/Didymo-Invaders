@@ -30,7 +30,6 @@ SpaceInvaders.GameLevel2.prototype.buildWorld = function(){
     this.buildShipExplosion();
 };
 
-// Override invadersCount to handle progression beyond Level 2
 SpaceInvaders.GameLevel2.prototype.invadersCount = function(){
     this.totalInvaders--;
     if(this.totalInvaders == 0){
@@ -39,7 +38,7 @@ SpaceInvaders.GameLevel2.prototype.invadersCount = function(){
         this.gameover = true;
 
         this.game.input.onTap.addOnce(function(){
-            this.state.start('GameLevel3', true, false, this.score);
+            this.state.start('FactCard2', true, false, this.score);
         }, this);
     }
 };

@@ -21,6 +21,9 @@ SpaceInvaders.Preloader.prototype = {
 		this.load.image('levelBG', 'assets/images/river_map.png');
 		this.load.image('levelBG2', 'assets/images/wanaka_map.png');
 		this.load.image('levelBG3', 'assets/images/shed_map.png');
+		this.load.image('factCard1', 'assets/images/FactCard1.png');
+		this.load.image('factCard2', 'assets/images/FactCard2.png');
+		this.load.image('factCard3', 'assets/images/FactCard3.png');
 	},	
 
 	create: function () {

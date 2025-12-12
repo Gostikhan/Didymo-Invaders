@@ -250,16 +250,18 @@ SpaceInvaders.Game.prototype = {
 	},
 
 	invadersCount: function(){
-    this.totalInvaders--;
-    if(this.totalInvaders == 0){
-        this.stateText.text = " Level Complete!\n Click to continue";
-        this.stateText.visible = true;
-        this.gameover = true;
-        this.game.input.onTap.addOnce(function(){
-            this.state.start('GameLevel2', true, false, this.score); 
-        }, this);
-    }
-},
+		this.totalInvaders--;
+		if(this.totalInvaders == 0){
+			this.stateText.text = " Level 1 Complete!\n Click to continue";
+			this.stateText.visible = true;
+			this.gameover = true;
+
+			// After Level 1, go to FactCard1 instead of directly to Level 2
+			this.game.input.onTap.addOnce(function(){
+				this.state.start('FactCard1', true, false, this.score);
+			}, this);
+		}
+	},
 
 	restartGame: function(){
 		// console.log('restartGame function');

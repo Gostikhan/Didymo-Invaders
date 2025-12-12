@@ -30,17 +30,15 @@ SpaceInvaders.GameLevel3.prototype.buildWorld = function(){
     this.buildShipExplosion();
 };
 
-// Override invadersCount for final win condition
 SpaceInvaders.GameLevel3.prototype.invadersCount = function(){
     this.totalInvaders--;
     if(this.totalInvaders == 0){
-        this.stateText.text = " YOU WIN!\n Click to restart";
+        this.stateText.text = " Final Level Complete!\n Click to continue";
         this.stateText.visible = true;
         this.gameover = true;
 
-        // After final level, go back to StartMenu
         this.game.input.onTap.addOnce(function(){
-            this.state.start('StartMenu');
+            this.state.start('FactCard3', true, false, this.score);
         }, this);
     }
 };
