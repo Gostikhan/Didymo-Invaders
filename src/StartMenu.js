@@ -14,6 +14,6 @@ SpaceInvaders.StartMenu.prototype = {
 		
 	},
 	startGame: function (pointer) {
-		this.state.start('Game');
+		this.state.start('Game', true, false, 0);
 	}
 };

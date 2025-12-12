@@ -280,7 +280,7 @@ SpaceInvaders.Game.prototype = {
 		this.score = 0;
 		this.gameover = false;
 		this.livingEnemies.length = 0;	
-		this.state.start('StartMenu');
+		this.state.start('StartMenu', true, false);
 		// this.invadersExplosions.callAll('revive',this);
 		// this.invaders.callAll('kill',this);
 		// this.invaders.removeAll();
@@ -325,5 +325,6 @@ SpaceInvaders.Game.prototype = {
 	   		this.physics.arcade.overlap(this.invadersBullets, this.ship, this.collisionInvadersBulletsShip, null, this);   			
    		}
 	}
+	
 
 };

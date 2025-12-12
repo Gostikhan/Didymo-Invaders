@@ -53,4 +53,12 @@ SpaceInvaders.GameLevel3.prototype.invadersCount = function(){
             this.state.start('FactCard3', true, false, this.score);
         }, this);
     }
+SpaceInvaders.GameLevel3.prototype.restartGame = function(){
+    if(this.music){ this.music.stop(); } // stop Level 3 music
+    this.totalInvaders = this.totalRow * this.totalInvadersRow;
+    this.score = 0; // reset score to 0
+    this.gameover = false;
+    this.livingEnemies.length = 0;  
+    this.state.start('StartMenu', true, false);
+};    
 };
