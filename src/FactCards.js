@@ -5,6 +5,7 @@ SpaceInvaders.FactCard1.prototype = {
     create: function() {
         var card = this.add.image(this.world.centerX, this.world.centerY, 'factCard1');
         card.anchor.setTo(0.5, 0.5);
+        card.scale.setTo(0.9, 0.9);
 
         // Click/tap to continue to Level 2
         this.input.onTap.addOnce(function(){
@@ -21,6 +22,7 @@ SpaceInvaders.FactCard2.prototype = {
     create: function() {
         var card = this.add.image(this.world.centerX, this.world.centerY, 'factCard2');
         card.anchor.setTo(0.5, 0.5);
+        card.scale.setTo(0.9, 0.9);
 
         // Click/tap to continue to Level 3
         this.input.onTap.addOnce(function(){
@@ -37,6 +39,7 @@ SpaceInvaders.FactCard3.prototype = {
     create: function() {
         var card = this.add.image(this.world.centerX, this.world.centerY, 'factCard3');
         card.anchor.setTo(0.5, 0.5);
+        card.scale.setTo(0.9, 0.9);
 
         // Click/tap to return to StartMenu after final fact
         this.input.onTap.addOnce(function(){
