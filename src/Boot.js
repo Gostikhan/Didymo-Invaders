@@ -5,7 +5,6 @@ SpaceInvaders.Boot = function(game) {};
 SpaceInvaders.Boot.prototype = {
     preload: function() {
         this.load.image('preloaderBar', 'assets/images/loader_bar.png');
-        this.load.image('titleimage', 'assets/images/logo.png');
     },
     
     create: function() {
