@@ -29,8 +29,8 @@ SpaceInvaders.Preloader.prototype = {
 		this.load.audio('level2Music', 'assets/audio/Level2Music.mp3');
 		this.load.audio('level3Music', 'assets/audio/Level3Music.mp3');
 		this.load.image('checkRay', 'assets/images/checkRay.jpg');
-		this.load.image('cleanBlaster', 'assets/images/cleanBlaster.jpg');
-		this.load.image('dryBeam', 'assets/images/dryBeam.jpg');
+		this.load.image('cleanBlaster', 'assets/images/cleanBlaster.png');
+		this.load.image('dryBeam', 'assets/images/dryBeam.png');
 	},	
 
 	create: function () {
