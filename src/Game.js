@@ -24,6 +24,11 @@ SpaceInvaders.Game = function(game) {
 SpaceInvaders.Game.prototype.init = function(score){
     this.score = score || 0;
     this.currentWeapon = 'check';
+	this.gameover = false;
+    this.bulletTime = 0;
+    this.invaderBulletTime = 0;
+    this.livingEnemies = [];
+    this.totalInvaders = this.totalRow * this.totalInvadersRow;
 };
 
 SpaceInvaders.Game.prototype = {
@@ -257,7 +262,8 @@ SpaceInvaders.Game.prototype = {
 	collisionInvadersBulletsShip: function(bullet, ship){
 		bullet.kill();
 	   	ship.kill();
-	   	this.explodeShip();	   	
+	   	this.explodeShip();
+		if(this.music){ this.music.stop(); } 	
 	   	this.stateText.text = " GAME OVER \n Click to restart";
         this.stateText.visible = true;
         this.gameover = true;
@@ -300,12 +306,23 @@ SpaceInvaders.Game.prototype = {
 
 	restartGame: function(){
 		if(this.music){ this.music.stop(); }
+		if(this.shipDeathSfx && this.shipDeathSfx.isPlaying){ 
+			this.shipDeathSfx.stop();
+		}
+		// Destroy old groups to avoid stale references
+		if(this.invaders) this.invaders.destroy(true);
+		if(this.bullets) this.bullets.destroy(true);
+		if(this.invadersBullets) this.invadersBullets.destroy(true);
+		if(this.invadersExplosions) this.invadersExplosions.destroy(true);
+		if(this.shipExplosions) this.shipExplosions.destroy(true);
 
 		// Reset core values
 		this.totalInvaders = this.totalRow * this.totalInvadersRow;
 		this.score = 0;
 		this.gameover = false;
 		this.livingEnemies.length = 0;
+		this.bulletTime = 0;
+		this.invaderBulletTime = 0;
 
 		// Restart cleanly at StartMenu
 		this.state.start('StartMenu', true, false, 0);
@@ -344,6 +361,7 @@ SpaceInvaders.Game.prototype = {
 	   		this.physics.arcade.overlap(this.invadersBullets, this.ship, this.collisionInvadersBulletsShip, null, this);   			
    		}
 	}
+	
 	
 	
 

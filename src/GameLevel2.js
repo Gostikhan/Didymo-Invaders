@@ -30,6 +30,11 @@ SpaceInvaders.GameLevel2.prototype.create = function() {
 SpaceInvaders.GameLevel2.prototype.init = function(scoreFromLevel1){
     this.score = scoreFromLevel1 || 0; // continue score
     this.currentWeapon = 'clean';
+    this.gameover = false;
+    this.bulletTime = 0;
+    this.invaderBulletTime = 0;
+    this.livingEnemies = [];
+    this.totalInvaders = this.totalRow * this.totalInvadersRow;
 };
 
 // Override buildWorld to change background or tweak level setup
@@ -62,6 +67,9 @@ SpaceInvaders.GameLevel2.prototype.invadersCount = function(){
 
 SpaceInvaders.GameLevel2.prototype.restartGame = function(){
     if(this.music){ this.music.stop(); } // stop Level 2 music
+    if(this.shipDeathSfx && this.shipDeathSfx.isPlaying){ 
+        this.shipDeathSfx.stop();          
+    }
     this.totalInvaders = this.totalRow * this.totalInvadersRow;
     this.score = 0; // reset score to 0
     this.gameover = false;
