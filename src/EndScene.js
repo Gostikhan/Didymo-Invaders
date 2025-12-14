@@ -22,7 +22,7 @@ SpaceInvaders.EndScene.prototype = {
             this.world.centerX, 
             this.world.centerY + 50, 
             'eightbitwonder', 
-            "We would be grateful if you could\nshare this with your friends and whānau.", 
+            "We would be grateful if you could\nshare this with your friends and whanau.", 
             16
         );
         shareText.align = 'center';
