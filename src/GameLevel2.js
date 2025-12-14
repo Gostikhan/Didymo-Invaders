@@ -17,8 +17,12 @@ SpaceInvaders.GameLevel2.prototype.create = function() {
 
     if (this.music) { this.music.stop(); } // stop previous music
     this.music = this.add.audio('level2Music');
+    this.music.volume = 0.7;
     this.music.loop = true;
     this.music.play();
+    this.shootSfx = this.add.audio('shootSfx');
+	this.enemyDeathSfx = this.add.audio('enemyDeathSfx');
+	this.shipDeathSfx = this.add.audio('shipDeathSfx');
 };
 
 

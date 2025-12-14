@@ -12,8 +12,10 @@ SpaceInvaders.StartMenu.prototype = {
 
 		// Play title music
 		this.titleMusic = this.add.audio('titleMusic');
+		this.titleMusic.volume = 0.7;
 		this.titleMusic.loop = true;   // keep looping while on title screen
 		this.titleMusic.play();
+		
 
 		this.input.onTap.addOnce(this.startGame, this);
 		

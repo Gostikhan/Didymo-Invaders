@@ -31,6 +31,9 @@ SpaceInvaders.Preloader.prototype = {
 		this.load.image('checkRay', 'assets/images/checkRay.jpg');
 		this.load.image('cleanBlaster', 'assets/images/cleanBlaster.png');
 		this.load.image('dryBeam', 'assets/images/dryBeam.png');
+		this.load.audio('shootSfx', 'assets/audio/shootSfx.mp3');
+		this.load.audio('enemyDeathSfx', 'assets/audio/enemyDeathSfx.mp3');
+		this.load.audio('shipDeathSfx', 'assets/audio/shipDeathSfx.mp3');
 	},	
 
 	create: function () {

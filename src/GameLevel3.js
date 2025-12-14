@@ -14,11 +14,14 @@ SpaceInvaders.GameLevel3.prototype.create = function() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
     this.buildWorld();
     this.input.keyboard.addKeyCapture([ Phaser.Keyboard.LEFT, Phaser.Keyboard.RIGHT, Phaser.Keyboard.SPACEBAR ]);
-
     if (this.music) { this.music.stop(); } // stop previous music
     this.music = this.add.audio('level3Music');
+    this.music.volume = 0.7;
     this.music.loop = true;
     this.music.play();
+    this.shootSfx = this.add.audio('shootSfx');
+	this.enemyDeathSfx = this.add.audio('enemyDeathSfx');
+	this.shipDeathSfx = this.add.audio('shipDeathSfx');
 };
 
 // Optional: initialize with score carried over from Level 1

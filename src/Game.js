@@ -35,8 +35,13 @@ SpaceInvaders.Game.prototype = {
 
 		// Play background music for Level 1
 		this.music = this.add.audio('level1Music');
+		this.music.volume = 0.7;
 		this.music.loop = true;   // keep looping
 		this.music.play();
+
+		this.shootSfx = this.add.audio('shootSfx');
+		this.enemyDeathSfx = this.add.audio('enemyDeathSfx');
+		this.shipDeathSfx = this.add.audio('shipDeathSfx');
 	},
 	
 
@@ -191,6 +196,9 @@ SpaceInvaders.Game.prototype = {
 				bullet.reset(this.ship.x, this.ship.y - 25);
 				bullet.body.velocity.y = -300;
 				this.bulletTime = this.time.now + 500;
+
+				this.shootSfx.play();
+				this.shootSfx.volume = 0.5;
 			}
 		}
 	},
@@ -222,6 +230,9 @@ SpaceInvaders.Game.prototype = {
 		var explosion2 = this.shipExplosions.getFirstExists(false);
    		explosion2.reset(this.ship.body.x+26, this.ship.body.y+16);
    		explosion2.animations.play('shipExplosion', 48, false, true);
+
+		this.shipDeathSfx.play();
+		this.shipDeathSfx.volume = 0.5;
 	},
 	
 	resetBullet: function(bullet) {
@@ -236,6 +247,8 @@ SpaceInvaders.Game.prototype = {
     	var explosion = this.invadersExplosions.getFirstExists(false);
    		explosion.reset(invader.body.x+32, invader.body.y+32);
    		explosion.animations.play('invaderExplosion', 24, false, true);
+		this.enemyDeathSfx.play();
+		this.enemyDeathSfx.volume = 0.5;
 		this.score += 20; 
    		this.updateScore();
    		this.invadersCount();
